@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+</head>
+<body>
+	<div id="inhalt">
+    	
+    	<th:block th:include="fragments/header :: header"></th:block>     	
+    	<div id="core">	
+			<h2>Thanks for your message!</h2>		
+			<p><a href="/index" th:href="@{/}">GO BACK HOME</a></p>
+		</div>	
+	
+	</div>
+</body>
+</html>

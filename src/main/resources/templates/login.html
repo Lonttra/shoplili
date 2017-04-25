@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+</head>   
+  
+<body>        
+   <div id="inhalt">
+            
+       <div id="logo">            	
+	        <img src="../static/img/logo2.png"
+		         th:src="@{img/logo2.png}"/>
+	         <br/>                                            
+	         <a>IT - Lilihammer S/A</a>
+       </div>
+            
+       <div id="coreclean">
+            <h1>Login</h1>
+            <br/>
+            <form th:action="@{/login}" method="post">
+            	<table class="table_form" >
+					<tr th:if="${param.error}">                                
+                    	<td> <span class="severityError">Invalid username and password.</span></td>	
+                    </tr>
+					<tr th:if="${param.logout}">                                
+                        <td> <span class="severityError">You have been logged out.</span></td>	
+                    </tr>						
+                    <tr>
+                        <td>LOGIN:&emsp;&emsp;<input id="username" name="username"  type="text" /></td> 
+                        <td> <span id="login_name_help" class="severityError"></span></td>								
+                    </tr>
+                     <tr>
+                        <td>PASSWORD: <input id="password" name="password" type="password"/></td>
+                        <td> <span id="password_help" class="severityError"></span></td>
+                     </tr>                                           
+                 </table>
+                 <br/><br/><br/>
+                 <input type="submit" value="Sign In"/>
+             </form>
+        </div> 
+                     
+    </div>
+
+</body>    
+</html>

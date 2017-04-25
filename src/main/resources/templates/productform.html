@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+</head>
+
+<body>
+
+	<div id="inhalt">
+	
+		<th:block th:include="fragments/header :: header"></th:block> 
+	
+		<h2>Product</h2>		
+	    <div id="core">		
+	    
+	     	<form id="frm_prod" name= "form_products" th:object="${product}" th:action="@{/product}" method="post">
+	     			     			
+		     		<input type="hidden" th:field="*{id}"/>
+		     		<input type="hidden" th:field="*{version}"/>
+		     		
+		     		<table class="table_form">
+		     			<tr>
+                            <td><label for="id_product">Product Id: </label></td>
+                            <td><input id="id_product" th:field="*{productId}" type="text" /></td> 
+                            <td class="severityError" th:if="${#fields.hasErrors('productId')}" th:errors="*{productId}">ProductId Error</td>
+	                   </tr>       
+		     		
+		     			<tr>
+		     				<td><label for="productDesc">Product Desc: </label></td>
+		     				<td><input id="productDesc" th:field="*{productDesc}" type="text" /></td> 
+		     				<td class="severityError" th:if="${#fields.hasErrors('productDesc')}" th:errors="*{productDesc}">ProductDesc Error</td>
+						</tr>
+						
+						<tr>
+		     				<td><label for="price">Price: </label></td>
+		     				<td><input id="price" th:field="*{price}" type="text" class="money" /></td> 
+		     				<td class="severityError" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</td>
+						</tr>
+						
+						<tr>
+		     				<td><label for="expDate">Expired date: </label></td>
+		     				<td><input id="expDate" th:field="*{expDate}" type="text" class="date"  /></td> 
+		     				<td class="severityError" th:if="${#fields.hasErrors('expDate')}" th:errors="*{expDate}">ExpDate Error</td>
+						</tr>
+	     		
+	     		</table>
+	     		
+	     		<hr/><br/>    
+	     		       
+                <a class="btn-func-back" href="#" th:href="@{/products}">GO BACK</a>               
+                <input type="submit" name="add" value="submit" th:attr="value=${submitAction}" />             
+	     		
+	     	</form>
+	     
+	     </div>
+	     
+	     <th:block th:include="fragments/footer :: footer"></th:block> 
+     
+     </div> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
+    <script>
+			jQuery(function($){
+			      $('.money').mask("#.##0,00", {reverse: true});
+	              $('.date').mask('00/00/0000');
+			});
+	</script>
+</body>
+</html>

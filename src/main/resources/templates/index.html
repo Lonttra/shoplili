@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+	</head>
+<body>
+	<div id="inhalt">
+    	
+    	 <th:block th:include="fragments/header :: header"></th:block>     	
+    	
+    	 <div id="bild"> 
+             <img src="../static/img/meeting2.jpg" 
+		          th:src="@{img/meeting2.jpg}"/>           
+         </div>
+        
+         <div id="text">
+             <p>Nossa empresa se destina a vender produtos da mais alta qualidade para todo o Brasil e para o mundo. Estamos no mercado a aproximadamente 20 anos. Temos diversos clientes no qual nos orgulhamos.</p>            
+         </div>         
+		 
+		 <th:block th:include="fragments/footer :: footer"></th:block> 
+		 
+	</div>
+</body>
+</html>

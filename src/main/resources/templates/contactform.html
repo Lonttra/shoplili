@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+</head>
+
+<body>
+	
+	<div id="inhalt">
+	
+		<th:block th:include="fragments/header :: header"></th:block> 
+		
+		<h2>Contact us!</h2>
+		<div id="core">			
+			<form id="frm_contact" name= "form_contacts" th:object="${contact}" th:action="@{/contactsuccess}" method="post">
+				<table class="table" >					
+					<tr>
+                         <td><label for="id_subject">Subject: </label></td>
+                         <td><input id="id_subject" th:field="*{subject}" type="text" /></td> 
+                         <td class="severityError" th:if="${#fields.hasErrors('subject')}" th:errors="*{subject}">subject Error</td> 
+                     </tr>
+			
+					<tr>
+                        <td><label for="name">Name: </label></td>
+                        <td><input id="name" name="Name" th:field="*{name}" type="text" /></td>
+                        <td class="severityError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name Error</td> 
+                     </tr>
+			
+					<tr>
+                        <td><label for="email">Email: </label></td> 
+                        <td><input id="email" name="Email" th:field="*{email}" type="text" /></td>
+                        <td class="severityError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
+                    </tr>
+					
+					<tr>
+                       <td><label for="message">Message: </label></td> 
+                       <td><textarea id="message" name="Message" th:field="*{message}" cols="30" rows="5" ></textarea></td>
+                       <td class="severityError" th:if="${#fields.hasErrors('message')}" th:errors="*{message}">message Error</td>
+                    </tr>
+			
+				</table>
+			
+				<hr/><br/>
+				<p><a class="btn-func-back" href="/index" th:href="@{/}">GO BACK</a>&nbsp;&nbsp;
+				<input type="submit" name="SEND" value="SEND"/></p>
+			
+			</form>	
+		</div> 
+	
+		<th:block th:include="fragments/footer :: footer"></th:block> 
+	
+	</div> 
+	
+</body>
+</html>

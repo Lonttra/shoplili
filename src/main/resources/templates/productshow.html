@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+</head>
+
+<body>
+
+	<div id="inhalt">
+	
+		<th:block th:include="fragments/header :: header"></th:block> 
+
+    	<h2>Product Details</h2>
+    	
+    	<div id="core">	
+
+            <form>
+            
+            	<table class="table">	
+            	
+            		<tr>
+                         <td><label>Product Id: </label></td>
+                         <td th:text="${product.productId}">ProductId</td>                         
+                    </tr>
+                    <tr>
+                         <td><label>Description: </label></td>
+                         <td th:text="${product.productDesc}">Product Description</td>                         
+                    </tr>
+                     <tr>
+                         <td><label>Price: </label></td>
+                         <td th:text="${product.price}">Price</td>                         
+                    </tr> 
+                     <tr>
+                         <td><label>Expired Date: </label></td>
+                         <td th:text="${product.expDate}">Expired Date</td>                         
+                    </tr>
+                    
+                </table>
+                
+                <hr/><br/>
+				<p><a class="btn-func-back" href="#" th:href="@{/products}">GO BACK</a></p>
+                              
+            </form>
+
+    	</div>
+		
+		<th:block th:include="fragments/footer :: footer"></th:block> 
+		
+	</div> 
+
+</body>
+</html>

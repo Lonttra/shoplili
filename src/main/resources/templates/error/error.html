@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+</head> 
+
+<body>
+	<div id="inhalt">	
+		<div id="logo">
+			<img src="../static/img/logo2.png"
+			        th:src="@{img/logo2.png}"/>
+		     <br/>                                            
+		     <a>IT - Lilihammer S/A</a>
+	   	</div>
+	   	
+	   	<div id="coreclean">
+	   		<h1>Sorry! An unexpected error has occurred!c</h1>
+	        <h1 th:text="${errorCode}">Error number</h1>
+        	<p th:utext="${errorMessage}">Error java.lang.NullPointerException</p>
+	   		<a href="/index" th:href="@{/}">Back to Home Page</a>	   	
+		</div> 		
+	</div> 
+	
+</body>
+</html>

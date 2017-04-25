@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+   </head>
+
+    <body>
+      <div th:fragment="header">
+    	<div id="header">
+    	
+	    	<div class="logo_line"> 
+	    	    <div class="logo_main">
+	    	        <a th:href="@{/}">
+	                <img src="../../static/img/logo2.png"
+                     th:src="@{/img/logo2.png}"/>
+	                </a> <br/>                                
+	                IT - Lilihammer S/A   	    
+	    	    </div>
+	    	    <div class="logo_user">
+	    	    	<a th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]! </a>
+	    	    	<form th:action="@{/logout}" method="post">
+	            	<input type="submit" value="Sign Out"/>
+	        		</form>
+	    	    </div>
+	        </div>
+	            
+	        <div id="navigation">            
+	             <a href="/products" th:href="@{/products}">PRODUCTS</a>
+		    	 <a href="/contact" th:href="@{/contact}">CONTACT</a>
+	        </div>
+    	    	
+    	</div> 
+     </div>
+    </body>
+</html>

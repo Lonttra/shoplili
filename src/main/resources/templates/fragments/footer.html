@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+    <th:block th:include="fragments/headerinc :: head"></th:block> 
+   </head>
+
+    <body>
+      <div th:fragment="footer">
+    	<div id="footer">
+    			<a th:href="@{http://www.facebook.com}" target="_blank">		             
+		             <img src="../../static/img/Facebook.png"
+                     th:src="@{/img/Facebook.png}"/>
+    			</a>
+    			<a th:href="@{http://www.twitter.com}" target="_blank">
+    				<img src="../../static/img/Twitter.png" 
+   		             th:src="@{/img/Twitter.png}"/>
+    			</a>
+    			<br/>            
+                <a th:href="@{''}">IMPRESSUM</a>  
+     	</div> 
+     </div>
+    </body>
+</html>
